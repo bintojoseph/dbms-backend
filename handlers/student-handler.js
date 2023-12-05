@@ -1,7 +1,7 @@
 const pool = require('../config/psql');
 
 
-const getStudents = (request, response) => {
+const getStudent = (request, response) => {
     pool.query('SELECT * FROM student ORDER BY id ASC', (error, results) => {
         if (error) {
             return response.status(400).json({
@@ -14,6 +14,14 @@ const getStudents = (request, response) => {
     })
 }
 
+
+
+const getStudents = (request, response) => {
+    pool.query('SELECT * FROM student ORDER BY id ASC', (error, results) => {
+        
+        response.status(200).json({test:"done"})
+    })
+}
 
 
 module.exports = {
